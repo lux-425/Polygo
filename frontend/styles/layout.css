@@ -1,0 +1,20 @@
+#polygo {
+  font-family: 'Baksheesh';
+  font-size: 55px;
+  font-weight: 500;
+  color: black;
+  position: fixed;
+  top: 10%;
+  left: 5.5%;
+  margin: 0;
+}
+
+#version {
+  font-family: 'Baksheesh';
+  font-weight: 500;
+  color: black;
+  position: fixed;
+  bottom: 0.55%;
+  right: 0.55%;
+  margin: 0;
+}
