@@ -10,17 +10,19 @@ import Experience from '../components/three/Experience';
 export default function Index() {
   return (
     <>
-      <Canvas
-        shadows
-        camera={{
-          fov: 45,
-          near: 0.1,
-          far: 200,
-          position: [0, 0, 0],
-        }}
-      >
-        <Experience />
-      </Canvas>
+      <div className='scene'>
+        <Canvas
+          shadows
+          camera={{
+            fov: 45,
+            near: 0.1,
+            far: 200,
+            position: [1, 0, 5],
+          }}
+        >
+          <Experience />
+        </Canvas>
+      </div>
 
       <Layout>
         <Home />
