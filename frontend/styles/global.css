@@ -1,5 +1,6 @@
 html,
-body {
+body,
+Canvas {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,5 +11,5 @@ body {
 
 @font-face {
   font-family: 'Baksheesh';
-  src: url('../public/fonts/BAKSHEESHRegular.TTF')
+  src: url('../public/fonts/BAKSHEESHRegular.TTF');
 }
