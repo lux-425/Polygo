@@ -1,28 +1,43 @@
-import React from 'react';
+import { lazy, Suspense, useEffect, useRef } from 'react';
 
 import * as THREE from 'three';
 THREE.ColorManagement.legacyMode = false;
 
-import { PresentationControls } from '@react-three/drei';
+import { PresentationControls, useGLTF, Environment } from '@react-three/drei';
+
+import Lights from './Light';
 
 const Experience = () => {
+  const testModel = useGLTF('/models/testModel.glb');
+  testModel.scene.traverse(function (object) {
+    if (object.isMesh) {
+      object.material.color.set(0xff00ff);
+      object.material.transparent = true;
+      object.material.opacity = 0.5;
+      object.rotateY(Math.PI/0.6)
+    }
+  });
+
   return (
     <>
+      <Environment preset='night' />
+
       <color args={['slategray']} attach='background' />
 
-      <PresentationControls
-        global
-        rotation={[0, 0.35, 0]}
-        polar={[-0.1, 0.2]}
-        azimuth={[-1, 0.75]}
-        config={{ mass: 2, tension: 55 }}
-        snap={{ mass: 4, tension: 55 }}
-      >
-        <mesh position={[0, 0, 0]}>
-          <boxGeometry />
-          <meshBasicMaterial color='magenta' />
-        </mesh>
-      </PresentationControls>
+      <Lights />
+
+      <group position={[-1.5, -2.5, -8]}>
+        <PresentationControls
+          global
+          rotation={[0, 0.35, 0]}
+          polar={[-0.1, 0.2]}
+          azimuth={[-1, 0.75]}
+          config={{ mass: 2, tension: 55 }}
+          snap={{ mass: 4, tension: 55 }}
+        >
+          <primitive object={testModel.scene} scale={0.3} />
+        </PresentationControls>
+      </group>
     </>
   );
 };
