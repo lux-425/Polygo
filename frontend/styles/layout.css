@@ -2,7 +2,7 @@
   font-family: 'Baksheesh';
   font-size: 55px;
   font-weight: 500;
-  color: black;
+  color: rgb(5, 25, 25);
   position: fixed;
   top: 10%;
   left: 5.5%;
@@ -12,7 +12,7 @@
 #version {
   font-family: 'Baksheesh';
   font-weight: 500;
-  color: black;
+  color: rgb(5, 25, 25);
   position: fixed;
   bottom: 0.55%;
   right: 0.55%;

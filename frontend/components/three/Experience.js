@@ -12,8 +12,8 @@ const Experience = () => {
 
       <PresentationControls
         global
-        rotation={[0.15, 0.15, 0]}
-        polar={[-0.4, 0.2]}
+        rotation={[0, 0.35, 0]}
+        polar={[-0.1, 0.2]}
         azimuth={[-1, 0.75]}
         config={{ mass: 2, tension: 55 }}
         snap={{ mass: 4, tension: 55 }}
