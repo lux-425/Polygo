@@ -4,6 +4,7 @@ import * as THREE from 'three';
 THREE.ColorManagement.legacyMode = false;
 
 import { PresentationControls, useGLTF, Environment } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
 
 import Lights from './Light';
 
@@ -17,6 +18,16 @@ const Experience = () => {
     }
   });
 
+  useFrame((state, delta) => {
+    const time = state.clock.getElapsedTime();
+
+    // state.camera.translateZ((Math.sin(time) + Math.cos(time))*0.15);
+    state.camera.position.x =
+      (Math.sin(time * 0.25) + Math.cos(time * 0.25)) * 10;
+    state.camera.position.z =
+      (Math.sin(time * 0.25) + Math.cos(time * 0.25)) * 5;
+  });
+
   return (
     <>
       <Environment preset='night' />
@@ -25,7 +36,7 @@ const Experience = () => {
 
       <Lights />
 
-      <group position={[-1.5, -2.5, -8]}>
+      <group position={[0, -10, -8]}>
         <PresentationControls
           global
           rotation={[0, 0, 0]}
@@ -34,7 +45,7 @@ const Experience = () => {
           config={{ mass: 5, tension: 55 }}
           snap={{ mass: 5, tension: 55 }}
         >
-          <primitive object={testModel.scene} scale={0.3} />
+          <primitive object={testModel.scene} scale={2} />
         </PresentationControls>
       </group>
     </>
