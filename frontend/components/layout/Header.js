@@ -3,7 +3,7 @@ import React from 'react'
 const Header = () => {
   return (
     <div id='header'>
-      <h1 id='polygo'>POLYGO</h1>
+      <a href='/' id='polygo'>POLYGO</a>
     </div>
   )
 }

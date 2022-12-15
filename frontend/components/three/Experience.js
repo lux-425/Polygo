@@ -14,7 +14,6 @@ const Experience = () => {
       object.material.color.set(0xff00ff);
       object.material.transparent = true;
       object.material.opacity = 0.5;
-      object.rotateY(Math.PI/0.6)
     }
   });
 
@@ -29,11 +28,11 @@ const Experience = () => {
       <group position={[-1.5, -2.5, -8]}>
         <PresentationControls
           global
-          rotation={[0, 0.35, 0]}
-          polar={[-0.1, 0.2]}
-          azimuth={[-1, 0.75]}
-          config={{ mass: 2, tension: 55 }}
-          snap={{ mass: 4, tension: 55 }}
+          rotation={[0, 0, 0]}
+          polar={[-0.1, 0.3]}
+          azimuth={[-1, 1]}
+          config={{ mass: 5, tension: 55 }}
+          snap={{ mass: 5, tension: 55 }}
         >
           <primitive object={testModel.scene} scale={0.3} />
         </PresentationControls>

@@ -1,20 +1,29 @@
 #polygo {
   font-family: 'Baksheesh';
-  font-size: 55px;
-  font-weight: 500;
-  color: rgb(5, 25, 25);
   position: fixed;
   top: 10%;
   left: 5.5%;
   margin: 0;
+  font-size: 55px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+  /* -webkit-text-stroke: 0.25px white; */
+  /* text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; */
+  pointer-events: auto;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 #version {
   font-family: 'Baksheesh';
-  font-weight: 500;
-  color: rgb(5, 25, 25);
   position: fixed;
   bottom: 0.55%;
   right: 0.55%;
   margin: 0;
+  font-weight: 500;
+  font-size: 10px;
+  color: rgb(0, 0, 0);
+  pointer-events: auto;
+  cursor: pointer;
+  text-decoration: none;
 }
