@@ -71,19 +71,23 @@ body {
   height: 75%;
 }
 /*
- * INPUT
+ * BUTTON
 */
 .button {
   font-family: 'Baksheesh';
+  font-size: medium;
   width: 15%;
   height: 10%;
   background: rgba(255, 255, 255, 0.05);
   color: whitesmoke;
   border: 1px solid rgba(255, 255, 255, 0.55);
   /* backdrop-filter: blur(55px); */
-  box-shadow: 0 0 80px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0 0 80px rgba(0, 0, 0, 0.25); */
   cursor: pointer;
   pointer-events: auto;
+  text-align: center;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
 }
 
 .button.toggleAuth {
@@ -93,12 +97,14 @@ body {
   margin: auto;
   background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(5px);
+  transition: 0.66s ease all;
 }
 
 .button.authentication.switch {
   position: relative;
-  bottom: -80%;
-  border-radius: 3px;
+  bottom: -75%;
+  /* border-radius: 3px; */
+  transition: 0.66s ease all;
 }
 
 .button.croix {
@@ -109,4 +115,230 @@ body {
   left: 46%;
   top: 3%;
   border-radius: 2px;
+  /* transition: 0.55s ease all; */
+}
+/*
+ * BUTTON ANIMATION
+*/
+.button:hover {
+  /* box-shadow: 0 0 1px #ffffff, 0 0 1px #ffffff; */
+}
+/* TOGGLE AUTH */
+.button.toggleAuth:hover {
+  /* border: none; */
+  border: 1px solid rgba(255, 255, 255, 0.85);
+}
+.button.toggleAuth:hover .line-1 {
+  -webkit-animation: move1 3000ms infinite;
+  animation: move1 3000ms infinite;
+}
+.button.toggleAuth:hover .line-2 {
+  -webkit-animation: move2 3000ms infinite;
+  animation: move2 3000ms infinite;
+}
+.button.toggleAuth:hover .line-3 {
+  -webkit-animation: move3 3000ms infinite;
+  animation: move3 3000ms infinite;
+}
+.button.toggleAuth:hover .line-4 {
+  -webkit-animation: move4 3000ms infinite;
+  animation: move4 3000ms infinite;
+}
+.toggleAuth .line-1 {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 2px;
+  background-color: white;
+  left: 0;
+  bottom: 0;
+}
+.toggleAuth .line-2 {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 2px;
+  background-color: white;
+  left: 0;
+  top: 0;
+}
+.toggleAuth .line-3 {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 2px;
+  background-color: white;
+  right: 0;
+  top: 0;
+}
+.toggleAuth .line-4 {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 2px;
+  background-color: white;
+  right: 0;
+  bottom: 0;
+}
+@-webkit-keyframes move1 {
+  0% {
+    height: 100%;
+    bottom: 0;
+  }
+  54% {
+    height: 0;
+    bottom: 100%;
+  }
+  55% {
+    height: 0;
+    bottom: 0;
+  }
+  100% {
+    height: 100%;
+    bottom: 0;
+  }
+}
+@keyframes move1 {
+  0% {
+    height: 100%;
+    bottom: 0;
+  }
+  54% {
+    height: 0;
+    bottom: 100%;
+  }
+  55% {
+    height: 0;
+    bottom: 0;
+  }
+  100% {
+    height: 100%;
+    bottom: 0;
+  }
+}
+@-webkit-keyframes move2 {
+  0% {
+    width: 0;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+@keyframes move2 {
+  0% {
+    width: 0;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+@-webkit-keyframes move3 {
+  0% {
+    height: 100%;
+    top: 0;
+  }
+  54% {
+    height: 0;
+    top: 100%;
+  }
+  55% {
+    height: 0;
+    top: 0;
+  }
+  100% {
+    height: 100%;
+    top: 0;
+  }
+}
+@keyframes move3 {
+  0% {
+    height: 100%;
+    top: 0;
+  }
+  54% {
+    height: 0;
+    top: 100%;
+  }
+  55% {
+    height: 0;
+    top: 0;
+  }
+  100% {
+    height: 100%;
+    top: 0;
+  }
+}
+@-webkit-keyframes move4 {
+  0% {
+    width: 0;
+    right: 0;
+  }
+  55% {
+    width: 100%;
+    right: 0;
+  }
+  100% {
+    width: 0;
+    right: 100%;
+  }
+}
+@keyframes move4 {
+  0% {
+    width: 0;
+    right: 0;
+  }
+  55% {
+    width: 100%;
+    right: 0;
+  }
+  100% {
+    width: 0;
+    right: 100%;
+  }
+}
+/* AUTH SWITCH */
+.button.authentication.switch:hover {
+  background: transparent;
+  border: none;
+  /* color: black; */
+}
+.button.authentication.switch:before,
+.button.authentication.switch:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #ffffff;
+  box-shadow: 0 0 2px #ffffff, 0 0 2px #ffffff inset;
+  transition: 555ms ease all;
+}
+.button.authentication.switch:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+.button.authentication.switch:hover:before,
+.button.authentication.switch:hover:after {
+  width: 100%;
+  transition: 555ms ease all;
+}
+/* CROIX */
+.button.croix:hover {
+  background: transparent;
+  transition: 555ms ease all;
 }

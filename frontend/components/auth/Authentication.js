@@ -9,13 +9,23 @@ const Authentication = () => {
   return (
     <>
       {!toggleWindow && (
-        <button className='button toggleAuth' onClick={()=>setToggleWindow(true)}>
+        <button
+          className='button toggleAuth'
+          onClick={() => setToggleWindow(true)}
+        >
           Start
+          <span className='line-1' />
+          <span className='line-2' />
+          <span className='line-3' />
+          <span className='line-4' />
         </button>
       )}
       {toggleWindow && (
         <div className='fenetre authentication'>
-          <button className='button croix' onClick={()=>setToggleWindow(false)}>
+          <button
+            className='button croix'
+            onClick={() => setToggleWindow(false)}
+          >
             X
           </button>
           {toggleLogin && <Login />}
