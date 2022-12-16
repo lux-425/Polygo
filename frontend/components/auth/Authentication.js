@@ -21,7 +21,7 @@ const Authentication = () => {
         </button>
       )}
       {toggleWindow && (
-        <div className='fenetre authentication'>
+        <div className='modal authentication'>
           <button
             className='button croix'
             onClick={() => setToggleWindow(false)}
@@ -30,7 +30,15 @@ const Authentication = () => {
           </button>
           {toggleLogin && <Login />}
           {!toggleLogin && <Register />}
-          <button className='button authentication switch'>Register</button>
+          <button className='button authentication ok'>OK</button>
+          <button
+            onClick={() => {
+              setToggleLogin(!toggleLogin);
+            }}
+            className='button authentication switch'
+          >
+            {(toggleLogin && 'Register') || 'Login'}
+          </button>
         </div>
       )}
     </>

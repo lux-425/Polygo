@@ -45,9 +45,20 @@ body {
   pointer-events: none;
 }
 /*
- * FENETRE
+ * TEXT
 */
-.fenetre {
+.title {
+  margin: 0.5rem;
+  /* padding: 0.25rem; */
+  color: whitesmoke;
+  font-family: 'Baksheesh';
+  font-size: 18px;
+  cursor: default;
+}
+/*
+ * MODAL
+*/
+.modal {
   position: relative;
   top: 33%;
   /* left: 50%; */
@@ -61,14 +72,43 @@ body {
   pointer-events: auto;
 }
 
-.fenetre.authentication {
+.modal.authentication {
   width: 35rem;
   height: 35%;
 }
 
-.fenetre.kanji {
+.modal.kanji {
   width: 75rem;
   height: 75%;
+}
+/*
+ * WRAPPER
+*/
+.wrapper.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.wrapper.input {
+  /* margin: 0.2rem; */
+  padding-top: 1.5rem;
+}
+/*
+ * INPUT
+*/
+input {
+  font-family: 'Baksheesh';
+  font-size: 15px;
+  width: 10rem;
+  height: 1.5rem;
+  color: whitesmoke;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  outline-color: rgba(255, 255, 255, 0.1);
 }
 /*
  * BUTTON
@@ -88,6 +128,9 @@ body {
   text-align: center;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
+  border-radius: 5px;
+  /* outline-offset: -1px; */
+  outline-color: rgba(255, 255, 255, 0.1);
 }
 
 .button.toggleAuth {
@@ -100,11 +143,28 @@ body {
   transition: 0.66s ease all;
 }
 
+.button.authentication {
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  display: block;
+  margin: auto;
+}
+
 .button.authentication.switch {
   position: relative;
-  bottom: -75%;
+  /* bottom: -18%; */
   /* border-radius: 3px; */
   transition: 0.66s ease all;
+  margin-top: 2rem;
+}
+
+.button.authentication.ok {
+  position: relative;
+  /* bottom: -8%; */
+  width: 3rem;
+  height: auto;
+  margin-top: 2rem;
 }
 
 .button.croix {
@@ -114,11 +174,11 @@ body {
   height: auto;
   left: 46%;
   top: 3%;
-  border-radius: 2px;
+  /* border-radius: 2px; */
   /* transition: 0.55s ease all; */
 }
 /*
- * BUTTON ANIMATION
+ * ~ ~ BUTTON ANIMATION ~ ~
 */
 .button:hover {
   /* box-shadow: 0 0 1px #ffffff, 0 0 1px #ffffff; */
@@ -341,4 +401,23 @@ body {
 .button.croix:hover {
   background: transparent;
   transition: 555ms ease all;
+}
+/* OK */
+.button.authentication.ok:after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.15);
+  transition: all 0.33s ease;
+  z-index: -1;
+}
+.button.authentication.ok:hover:after {
+  left: 0;
+  width: 100%;
+}
+.button.authentication.ok:active {
+  top: 2px;
 }

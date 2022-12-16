@@ -1,9 +1,19 @@
-import React from 'react'
+import React from 'react';
 
 const Register = () => {
   return (
-    <div>Register</div>
-  )
-}
+    <>
+      <p className='title'>Register</p>
+      <div className='wrapper form'>
+        <div className='wrapper input'>
+          <input placeholder='new pseudo'></input>
+        </div>
+        <div className='wrapper input'>
+          <input placeholder='new password'></input>
+        </div>
+      </div>
+    </>
+  );
+};
 
-export default Register
+export default Register;
