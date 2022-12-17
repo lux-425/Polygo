@@ -73,14 +73,16 @@ body {
 }
 
 .modal.authentication {
-  width: 35rem;
-  height: 35%;
+  width: 18rem;
+  height: 20rem;
+}
+@media only screen and (min-width: 768px) {
+  .modal.authentication {
+    width: 32rem;
+    height: 36%;
+  }
 }
 
-.modal.kanji {
-  width: 75rem;
-  height: 75%;
-}
 /*
  * WRAPPER
 */
@@ -116,7 +118,7 @@ input {
 .button {
   font-family: 'Baksheesh';
   font-size: medium;
-  width: 15%;
+  width: 5rem;
   height: 10%;
   background: rgba(255, 255, 255, 0.05);
   color: whitesmoke;
@@ -135,7 +137,7 @@ input {
 
 .button.toggleAuth {
   width: 6rem;
-  height: 4%;
+  height: 5%;
   border-radius: 2px;
   margin: auto;
   background: rgba(0, 0, 0, 0.55);
@@ -153,15 +155,17 @@ input {
 
 .button.authentication.switch {
   position: relative;
-  /* bottom: -18%; */
-  /* border-radius: 3px; */
   transition: 0.66s ease all;
-  margin-top: 2rem;
+  margin-top: 2.25rem;
+}
+@media only screen and (min-width: 768px) {
+  .button.authentication.switch {
+    margin-top: 3rem;
+  }
 }
 
 .button.authentication.ok {
   position: relative;
-  /* bottom: -8%; */
   width: 3rem;
   height: auto;
   margin-top: 2rem;
@@ -169,13 +173,18 @@ input {
 
 .button.croix {
   position: relative;
-  padding: auto;
   width: auto;
   height: auto;
   left: 46%;
-  top: 3%;
-  /* border-radius: 2px; */
-  /* transition: 0.55s ease all; */
+  border-radius: 0px;
+  border-right: 0;
+  border-top: 0;
+  justify-content: center;
+}
+@media only screen and (min-width: 768px) {
+  .button.croix {
+    left: 48%;
+  }
 }
 /*
  * ~ ~ BUTTON ANIMATION ~ ~
@@ -413,6 +422,7 @@ input {
   background: rgba(255, 255, 255, 0.15);
   transition: all 0.33s ease;
   z-index: -1;
+  border-radius: 5px;
 }
 .button.authentication.ok:hover:after {
   left: 0;

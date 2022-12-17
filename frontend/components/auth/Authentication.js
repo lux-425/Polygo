@@ -30,7 +30,6 @@ const Authentication = () => {
           </button>
           {toggleLogin && <Login />}
           {!toggleLogin && <Register />}
-          <button className='button authentication ok'>OK</button>
           <button
             onClick={() => {
               setToggleLogin(!toggleLogin);
