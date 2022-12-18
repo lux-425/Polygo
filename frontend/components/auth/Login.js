@@ -8,7 +8,7 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const { loading, error, clearErrors, user, isAuthenticated, login } =
+  const { loading, error, clearErrors, login } =
     useContext(AuthContext);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const Login = () => {
     <>
       <p className='title'>{loading ? 'Loading...' : 'Login'}</p>
       <div className='wrapper form'>
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} noValidate>
           <div className='wrapper input'>
             <input
               type='text'

@@ -1,13 +1,12 @@
-import Head from 'next/head';
-import Image from 'next/image';
-
 import Layout from '../components/layout/Layout';
 import Home from '../components/Home';
 import Experience from '../components/three/Experience';
 
 import { Canvas } from '@react-three/fiber';
 
-export default function Index() {
+import { isUserAuthenticated } from '../utils/isAuthenticated';
+
+export default function Index({ access_token }) {
   return (
     <>
       <div id='scene'>
@@ -26,9 +25,24 @@ export default function Index() {
 
       <div id='interface'>
         <Layout>
-          <Home />
+          <Home access_token={access_token} />
         </Layout>
       </div>
     </>
   );
+}
+
+export async function getServerSideProps({ req }) {
+  const access_token = req.cookies.access;
+  const user = await isUserAuthenticated(access_token);
+
+  if (!user) {
+    return {
+      props: { access_token: null },
+    };
+  }
+
+  return {
+    props: { access_token },
+  };
 }
