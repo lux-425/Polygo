@@ -3,9 +3,9 @@ import Image from 'next/image';
 
 import Layout from '../components/layout/Layout';
 import Home from '../components/Home';
+import Experience from '../components/three/Experience';
 
 import { Canvas } from '@react-three/fiber';
-import Experience from '../components/three/Experience';
 
 export default function Index() {
   return (

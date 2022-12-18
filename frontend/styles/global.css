@@ -61,15 +61,14 @@ body {
 .modal {
   position: relative;
   top: 33%;
-  /* left: 50%; */
   text-align: center;
   background: rgba(0, 0, 0, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.55);
-  /* border-radius: 5px; */
-  box-shadow: 0 0 80px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0 0 80px rgba(0, 0, 0, 0.25); */
   backdrop-filter: blur(25px);
   overflow: hidden;
   pointer-events: auto;
+  border-radius: 0;
 }
 
 .modal.authentication {
@@ -112,6 +111,11 @@ input {
   padding: 0;
   outline-color: rgba(255, 255, 255, 0.1);
 }
+input::placeholder {
+  /* font-weight: bold; */
+  /* opacity: 0.5; */
+  /* color: red; */
+}
 /*
  * BUTTON
 */
@@ -123,14 +127,12 @@ input {
   background: rgba(255, 255, 255, 0.05);
   color: whitesmoke;
   border: 1px solid rgba(255, 255, 255, 0.55);
-  /* backdrop-filter: blur(55px); */
-  /* box-shadow: 0 0 80px rgba(0, 0, 0, 0.25); */
   cursor: pointer;
   pointer-events: auto;
   text-align: center;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
-  border-radius: 5px;
+  border-radius: 4px;
   /* outline-offset: -1px; */
   outline-color: rgba(255, 255, 255, 0.1);
 }
@@ -157,6 +159,7 @@ input {
   position: relative;
   transition: 0.66s ease all;
   margin-top: 2.25rem;
+  border-radius: 2px;
 }
 @media only screen and (min-width: 768px) {
   .button.authentication.switch {
@@ -169,13 +172,14 @@ input {
   width: 3rem;
   height: auto;
   margin-top: 2rem;
+  border-radius: 6px;
 }
 
 .button.croix {
   position: relative;
   width: auto;
   height: auto;
-  left: 46%;
+  left: 133px;
   border-radius: 0px;
   border-right: 0;
   border-top: 0;
@@ -183,19 +187,19 @@ input {
 }
 @media only screen and (min-width: 768px) {
   .button.croix {
-    left: 48%;
+    left: 245px;
   }
 }
 /*
  * ~ ~ BUTTON ANIMATION ~ ~
 */
 .button:hover {
-  /* box-shadow: 0 0 1px #ffffff, 0 0 1px #ffffff; */
 }
 /* TOGGLE AUTH */
 .button.toggleAuth:hover {
   /* border: none; */
   border: 1px solid rgba(255, 255, 255, 0.85);
+  color: white;
 }
 .button.toggleAuth:hover .line-1 {
   -webkit-animation: move1 3000ms infinite;
@@ -381,7 +385,7 @@ input {
 .button.authentication.switch:hover {
   background: transparent;
   border: none;
-  /* color: black; */
+  color: white;
 }
 .button.authentication.switch:before,
 .button.authentication.switch:after {
@@ -389,10 +393,9 @@ input {
   position: absolute;
   top: 0;
   right: 0;
-  height: 2px;
+  height: 1px;
   width: 0;
   background: #ffffff;
-  box-shadow: 0 0 2px #ffffff, 0 0 2px #ffffff inset;
   transition: 555ms ease all;
 }
 .button.authentication.switch:after {
@@ -404,12 +407,13 @@ input {
 .button.authentication.switch:hover:before,
 .button.authentication.switch:hover:after {
   width: 100%;
-  transition: 555ms ease all;
+  transition: 1111ms ease all;
 }
 /* CROIX */
 .button.croix:hover {
   background: transparent;
   transition: 555ms ease all;
+  color: white;
 }
 /* OK */
 .button.authentication.ok:after {
@@ -423,6 +427,7 @@ input {
   transition: all 0.33s ease;
   z-index: -1;
   border-radius: 5px;
+  color: white;
 }
 .button.authentication.ok:hover:after {
   left: 0;

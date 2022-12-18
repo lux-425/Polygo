@@ -1,20 +1,60 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react';
+
+import { toast } from 'react-toastify';
+
+import AuthContext from '../../context/AuthContext';
 
 const Login = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const { loading, error, clearErrors, user, isAuthenticated, login } =
+    useContext(AuthContext);
+
+  useEffect(() => {
+    if (error) {
+      toast.dark(error, { type: 'error' });
+      clearErrors();
+    }
+  }, [error, clearErrors]);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    login({ username, password });
+  };
   return (
     <>
-      <p className='title'>Login</p>
+      <p className='title'>{loading ? 'Loading...' : 'Login'}</p>
       <div className='wrapper form'>
-        <div className='wrapper input'>
-          <input placeholder='username'></input>
-        </div>
-        <div className='wrapper input'>
-          <input type='password' placeholder='password'></input>
-        </div>
+        <form onSubmit={submitHandler}>
+          <div className='wrapper input'>
+            <input
+              type='text'
+              pattern='\w{3,16}'
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder='username'
+              required
+            ></input>
+          </div>
+          <div className='wrapper input'>
+            <input
+              type='password'
+              pattern='\w{3,16}'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder='password'
+              required
+            ></input>
+          </div>
+          <button type='submit' className='button authentication ok'>
+            OK
+          </button>
+        </form>
       </div>
-      <button className='button authentication ok'>OK</button>
     </>
   );
-}
+};
 
-export default Login
+export default Login;

@@ -1,14 +1,15 @@
-import { React, useState } from 'react';
+import { React, useContext, useState } from 'react';
 
 import Authentication from './auth/Authentication';
 
-const Home = () => {
-  const [authenticated, setAuthenticated] = useState(false);
+import AuthContext from '../context/AuthContext';
 
+const Home = () => {
+  const { isAuthenticated } = useContext(AuthContext);
   return (
     <>
-        {!authenticated && <Authentication />}
-        {authenticated && <></>}
+      {!isAuthenticated && <Authentication />}
+      {isAuthenticated && <></>}
     </>
   );
 };
