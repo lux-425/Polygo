@@ -8,8 +8,7 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const { loading, error, clearErrors, login } =
-    useContext(AuthContext);
+  const { loading, error, clearErrors, login } = useContext(AuthContext);
 
   useEffect(() => {
     if (error) {
@@ -21,7 +20,7 @@ const Login = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    login({ username, password });
+    if (username && password) login({ username, password });
   };
   return (
     <>

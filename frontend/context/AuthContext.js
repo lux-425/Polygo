@@ -27,8 +27,40 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       setLoading(false);
       setError(
-        (error.response &&
-          (error.response.data.detail || error.response.data.error))
+        error.response &&
+          (error.response.data.detail || error.response.data.error)
+      );
+    }
+  };
+
+  // Register the new user
+  const register = async ({ username, password }) => {
+    try {
+      setLoading(true);
+
+      const res = await axios.post(`${process.env.API_URL}/api/register/`, {
+        username,
+        password,
+      });
+
+      if (res.data.message) {
+        setLoading(false);
+        login({ username, password });
+      } else if (res.data) {
+        setLoading(false);
+        setError(
+          'Username and password must be alphanumeric, between 3 and 16 characters long.'
+        );
+      } else {
+        setTimeout(() => {
+          setLoading(false);
+        }, 5555);
+      }
+    } catch (error) {
+      setLoading(false);
+      setError(
+        error.response &&
+          (error.response.data.detail || error.response.data.error)
       );
     }
   };
@@ -48,6 +80,7 @@ export const AuthProvider = ({ children }) => {
         error,
         clearErrors,
         login,
+        register,
       }}
     >
       {children}

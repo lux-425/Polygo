@@ -5,16 +5,18 @@ import Authentication from './auth/Authentication';
 import AuthContext from '../context/AuthContext';
 
 const Home = ({ access_token }) => {
-  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated } = useContext(AuthContext);
+
+  let openMenu = isAuthenticated;
 
   if (access_token) {
-    setIsAuthenticated(true);
+    openMenu = true;
   }
 
   return (
     <>
-      {!isAuthenticated && <Authentication />}
-      {isAuthenticated && <>MENU</>}
+      {!openMenu && <Authentication />}
+      {openMenu && <>MENU</>}
     </>
   );
 };

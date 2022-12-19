@@ -16,18 +16,46 @@ const Register = () => {
       clearErrors();
     }
   }, [error, clearErrors]);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    if (username && password) register({ username, password });
+  };
   return (
     <>
-      <p className='title'>Register</p>
+      <p className='title'>{loading ? 'Loading...' : 'Register'}</p>
       <div className='wrapper form'>
-        <div className='wrapper input'>
-          <input placeholder='new username'></input>
-        </div>
-        <div className='wrapper input'>
-          <input type='password' placeholder='new password'></input>
-        </div>
+        <form onSubmit={submitHandler} noValidate>
+          <div className='wrapper input'>
+            <input
+              type='text'
+              pattern='\w{3,16}'
+              value={username}
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+              placeholder='new username'
+              required
+            ></input>
+          </div>
+          <div className='wrapper input'>
+            <input
+              type='password'
+              pattern='\w{3,16}'
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              placeholder='new password'
+              required
+            ></input>
+          </div>
+          <button type='submit' className='button authentication ok'>
+            OK
+          </button>
+        </form>
       </div>
-      <button className='button authentication ok'>OK</button>
     </>
   );
 };
