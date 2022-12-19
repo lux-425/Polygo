@@ -8,7 +8,10 @@ import Footer from './Footer';
 
 import { ToastContainer } from 'react-toastify';
 
-const Layout = ({ children, title = 'Learn 日本語' }) => {
+const Layout = ({ children, title = 'Learn 日本語', openMenu }) => {
+  // if (openMenu) {
+  //   title = '';
+  // }
   return (
     <>
       <Head>
@@ -17,10 +20,10 @@ const Layout = ({ children, title = 'Learn 日本語' }) => {
 
       <ToastContainer position='bottom-center' />
 
-      <Header />
+      <Header openMenu={openMenu} />
       {/* components that will be passed between the general layout */}
       {children}
-      <Footer />
+      <Footer openMenu={openMenu} />
     </>
   );
 };

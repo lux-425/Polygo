@@ -1,6 +1,5 @@
-import Layout from '../components/layout/Layout';
-import Home from '../components/Home';
 import Experience from '../components/three/Experience';
+import Home from '../components/Home';
 
 import { Canvas } from '@react-three/fiber';
 
@@ -24,9 +23,7 @@ export default function Index({ access_token }) {
       </div>
 
       <div id='interface'>
-        <Layout>
-          <Home access_token={access_token} />
-        </Layout>
+        <Home access_token={access_token} />
       </div>
     </>
   );

@@ -18,15 +18,47 @@ const Experience = () => {
     }
   });
 
-  useFrame((state, delta) => {
-    const time = state.clock.getElapsedTime();
+  const getDeviceType = () => {
+    const ua = global.navigator.userAgent;
+    if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+      return 'tablet';
+    }
+    if (
+      /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+        ua
+      )
+    ) {
+      return 'mobile';
+    }
+    return 'desktop';
+  };
+  let deviceType = getDeviceType();
 
-    // state.camera.translateZ((Math.sin(time) + Math.cos(time))*0.15);
-    state.camera.position.x =
-      (Math.sin(time * 0.25) + Math.cos(time * 0.25)) * 10;
-    state.camera.position.z =
-      (Math.sin(time * 0.25) + Math.cos(time * 0.25)) * 5;
-  });
+  let modelScale = 0;
+  let modelYPos = 0;
+  switch (deviceType) {
+    case 'desktop':
+      modelScale = 2;
+      modelYPos = -10;
+      break;
+    case 'mobile':
+      modelScale = 0.2;
+      modelYPos = -1;
+      break;
+    default:
+      modelScale = 1;
+      modelYPos = -4;
+  }
+
+  // useFrame((state, delta) => {
+  //   const time = state.clock.getElapsedTime();
+
+  //   // state.camera.translateZ((Math.sin(time) + Math.cos(time))*0.15);
+  //   state.camera.position.x =
+  //     (Math.sin(time * 0.25) + Math.cos(time * 0.25)) * 10;
+  //   state.camera.position.z =
+  //     (Math.sin(time * 0.25) + Math.cos(time * 0.25)) * 5;
+  // });
 
   return (
     <>
@@ -36,7 +68,7 @@ const Experience = () => {
 
       <Lights />
 
-      <group position={[0, -10, -8]}>
+      <group position={[0, modelYPos, -10]}>
         <PresentationControls
           global
           rotation={[0, 0, 0]}
@@ -45,7 +77,7 @@ const Experience = () => {
           config={{ mass: 5, tension: 55 }}
           snap={{ mass: 5, tension: 55 }}
         >
-          <primitive object={testModel.scene} scale={2} />
+          <primitive object={testModel.scene} scale={modelScale} />
         </PresentationControls>
       </group>
     </>
