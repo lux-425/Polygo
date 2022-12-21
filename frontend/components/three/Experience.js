@@ -8,7 +8,7 @@ import { useFrame } from '@react-three/fiber';
 
 import Lights from './Light';
 
-const Experience = () => {
+const Experience = ({ deviceType }) => {
   const testModel = useGLTF('/models/testModel.glb');
   testModel.scene.traverse(function (object) {
     if (object.isMesh) {
@@ -18,36 +18,20 @@ const Experience = () => {
     }
   });
 
-  const getDeviceType = () => {
-    const ua = global.navigator.userAgent;
-    if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
-      return 'tablet';
-    }
-    if (
-      /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
-        ua
-      )
-    ) {
-      return 'mobile';
-    }
-    return 'desktop';
-  };
-  let deviceType = getDeviceType();
-
   let modelScale = 0;
   let modelYPos = 0;
   switch (deviceType) {
     case 'desktop':
-      modelScale = 2;
-      modelYPos = -10;
+      modelScale = 0.2;
+      modelYPos = -2.5;
       break;
     case 'mobile':
-      modelScale = 0.2;
-      modelYPos = -1;
+      modelScale = 0.1;
+      modelYPos = -2.5;
       break;
     default:
       modelScale = 1;
-      modelYPos = -4;
+      modelYPos = 1;
   }
 
   // useFrame((state, delta) => {
@@ -68,7 +52,7 @@ const Experience = () => {
 
       <Lights />
 
-      <group position={[0, modelYPos, -10]}>
+      <group position={[0, modelYPos, 0]}>
         <PresentationControls
           global
           rotation={[0, 0, 0]}

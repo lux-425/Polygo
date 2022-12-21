@@ -6,6 +6,31 @@ import { Canvas } from '@react-three/fiber';
 import { isUserAuthenticated } from '../utils/isAuthenticated';
 
 export default function Index({ access_token }) {
+  // const getDeviceType = () => {
+  //   const ua = global.navigator.userAgent;
+  //   if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+  //     return 'tablet';
+  //   }
+  //   if (
+  //     /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+  //       ua
+  //     )
+  //   ) {
+  //     return 'mobile';
+  //   }
+  //   return 'desktop';
+  // };
+  // let deviceType = getDeviceType();
+  // let cameraZ = 0;
+  // if (deviceType === 'desktop') {
+  //   cameraZ = -15;
+  // } else {
+  //   cameraZ = -35;
+  // }
+
+  let deviceType = 'desktop';
+  let cameraZ = -15;
+
   return (
     <>
       <div id='scene'>
@@ -15,10 +40,10 @@ export default function Index({ access_token }) {
             fov: 45,
             near: 0.1,
             far: 200,
-            position: [1, 0, 5],
+            position: [0, 0, cameraZ],
           }}
         >
-          <Experience />
+          <Experience deviceType={deviceType} />
         </Canvas>
       </div>
 

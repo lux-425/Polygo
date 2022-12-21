@@ -46,15 +46,14 @@ export const AuthProvider = ({ children }) => {
       if (res.data.message) {
         setLoading(false);
         login({ username, password });
-      } else if (res.data) {
+      } else if (res.data.username) {
+        setLoading(false);
+        setError(res.data.username[0]);
+      } else {
         setLoading(false);
         setError(
           'Username and password must be alphanumeric, between 3 and 16 characters long.'
         );
-      } else {
-        setTimeout(() => {
-          setLoading(false);
-        }, 5555);
       }
     } catch (error) {
       setLoading(false);

@@ -44,6 +44,18 @@ body {
   margin: 0;
   pointer-events: none;
 }
+
+.menuIndicator {
+  width: 0.55rem;
+  height: 1.8rem;
+  background-color: rgba(255, 255, 255, 0);
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  position: absolute;
+  left: -0.8rem;
+  top: 0px;
+  transition: all 0.33s ease;
+}
 /*
  * TEXT
 */
@@ -90,9 +102,18 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+
 .wrapper.input {
   /* margin: 0.2rem; */
   padding-top: 1.5rem;
+}
+
+.wrapper.menuButtons {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 5.5%;
+  top: 25%;
 }
 /*
  * INPUT
@@ -189,6 +210,16 @@ input::placeholder {
   .button.croix {
     left: 245px;
   }
+}
+
+.button.menu {
+  width: 8rem;
+  height: 2rem;
+  margin: 1.25rem 0rem;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(5px);
+  transition: 0.33s ease all;
 }
 /*
  * ~ ~ BUTTON ANIMATION ~ ~
@@ -435,4 +466,16 @@ input::placeholder {
 }
 .button.authentication.ok:active {
   top: 2px;
+}
+/* MENU */
+.button.menu:hover {
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  color: white;
+  box-shadow: inset 15px 0px 10px rgba(255, 255, 255, 0.85),
+    0 0 0px rgba(255, 255, 255, 0.2);
+  padding-left: 25px;
+}
+.button.menu:hover .menuIndicator {
+  left: -0.9rem;
+  background-color: rgba(255, 255, 255, 0.8);
 }
