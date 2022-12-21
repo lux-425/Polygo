@@ -15,12 +15,12 @@ const Menu = () => {
           <div className='menuIndicator' />
           Kanji
         </button>
-        <button onClick={clickHandler} className='button menu' disabled>
-          <div className='menuIndicator' />
+        <button onClick={clickHandler} className='button menu vocabulary' disabled>
+          {/* <div className='menuIndicator' /> */}
           Vocabulary
         </button>
-        <button onClick={clickHandler} className='button menu' disabled>
-          <div className='menuIndicator' />
+        <button onClick={clickHandler} className='button menu grammar' disabled>
+          {/* <div className='menuIndicator' /> */}
           Grammar
         </button>
         <button onClick={clickHandler} className='button menu'>

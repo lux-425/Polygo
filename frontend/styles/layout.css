@@ -6,12 +6,12 @@
   margin: 0;
   font-size: 35px;
   font-weight: 500;
-  color: white;
+  color: rgba(255, 255, 255, 0.95);
   /* -webkit-text-stroke: 0.25px white; */
   pointer-events: auto;
   cursor: pointer;
   text-decoration: none;
-  text-shadow: 0 0 5px black;
+  text-shadow: 0 0 4px black;
   outline: none;
 }
 @media only screen and (min-width: 768px) {
@@ -28,7 +28,7 @@
   margin: 0;
   font-weight: 500;
   font-size: 5px;
-  color: rgb(0, 0, 0);
+  color: rgba(0, 0, 0, 0.85);
   pointer-events: auto;
   cursor: pointer;
   text-decoration: none;
@@ -44,7 +44,7 @@
  * ~ ~ ANIMATION ~ ~
 */
 #polygo:hover {
-  color: black;
-  text-shadow: 0px 0px 5px white;
+  color: rgba(0, 0, 0, 0.85);
+  text-shadow: 0px 0px 3px white;
   transition: 555ms all ease;
 }
