@@ -10,6 +10,12 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [error, setError] = useState(null);
 
+  useEffect(() => {
+    if (!user) {
+      retrieveUser();
+    }
+  }, [user]);
+
   // Login the user
   const login = async ({ username, password }) => {
     try {
@@ -20,7 +26,7 @@ export const AuthProvider = ({ children }) => {
       });
 
       if (res.data.success) {
-        // retrieveUser();
+        retrieveUser();
         setIsAuthenticated(true);
         setLoading(false);
       }
@@ -64,6 +70,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Logout the user
   const logout = async () => {
     try {
       setLoading(true);
@@ -87,6 +94,28 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const retrieveUser = async () => {
+    try {
+      setLoading(true);
+
+      const res = await axios.get('/api/auth/retrieveUser');
+
+      if (res.data.user) {
+        setIsAuthenticated(true);
+        setUser(res.data.user);
+        setLoading(false);
+      }
+    } catch (error) {
+      setUser(null);
+      setIsAuthenticated(false);
+      setError(
+        error.response &&
+          (error.response.data.detail || error.response.data.error)
+      );
+      setLoading(false);
+    }
+  };
+
   // Clear all errors
   const clearErrors = () => {
     setError(null);
@@ -104,6 +133,7 @@ export const AuthProvider = ({ children }) => {
         login,
         register,
         logout,
+        retrieveUser,
       }}
     >
       {children}

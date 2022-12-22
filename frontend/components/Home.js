@@ -11,9 +11,13 @@ const Home = ({ access_token }) => {
 
   let openMenu = isAuthenticated;
 
-  if (access_token) {
-    openMenu = true;
-  }
+  useEffect(() => {
+    if (access_token || isAuthenticated) {
+      openMenu = true;
+    } else {
+      openMenu = false;
+    }
+  }, [isAuthenticated]);
 
   return (
     <Layout openMenu={openMenu}>
