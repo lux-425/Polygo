@@ -27,7 +27,6 @@ export default function Index({ access_token }) {
   // } else {
   //   cameraZ = -35;
   // }
-
   let deviceType = 'desktop';
   let cameraZ = -15;
 

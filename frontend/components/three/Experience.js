@@ -34,15 +34,11 @@ const Experience = ({ deviceType }) => {
       modelYPos = 1;
   }
 
-  // useFrame((state, delta) => {
-  //   const time = state.clock.getElapsedTime();
-
-  //   // state.camera.translateZ((Math.sin(time) + Math.cos(time))*0.15);
-  //   state.camera.position.x =
-  //     (Math.sin(time * 0.25) + Math.cos(time * 0.25)) * 10;
-  //   state.camera.position.z =
-  //     (Math.sin(time * 0.25) + Math.cos(time * 0.25)) * 5;
-  // });
+  useFrame((state, delta) => {
+    const time = state.clock.getElapsedTime();
+    state.camera.position.z =
+      Math.sin(time * 0.25) + Math.cos(time * 0.25) - 15;
+  });
 
   return (
     <>

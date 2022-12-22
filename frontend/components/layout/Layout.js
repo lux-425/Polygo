@@ -9,9 +9,6 @@ import Footer from './Footer';
 import { ToastContainer } from 'react-toastify';
 
 const Layout = ({ children, title = 'Learn 日本語', openMenu }) => {
-  // if (openMenu) {
-  //   title = '';
-  // }
   return (
     <>
       <Head>
