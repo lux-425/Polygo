@@ -20,7 +20,7 @@ const Layout = ({ children, title = 'Learn 日本語', openMenu }) => {
       <Header openMenu={openMenu} />
       {/* components that will be passed between the general layout */}
       {children}
-      <Footer openMenu={openMenu} />
+      <Footer />
     </>
   );
 };

@@ -30,7 +30,7 @@ const Login = () => {
           <div className='wrapper input'>
             <input
               type='text'
-              pattern='\w{3,16}'
+              pattern='\w{3,12}'
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               placeholder='username'
@@ -40,7 +40,7 @@ const Login = () => {
           <div className='wrapper input'>
             <input
               type='password'
-              pattern='\w{3,16}'
+              pattern='\w{3,12}'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder='password'

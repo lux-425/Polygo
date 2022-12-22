@@ -10,8 +10,8 @@ class SignUpSerializer(serializers.ModelSerializer):
         fields = ['username', 'password']
 
         extra_kwargs = {
-            'username': {'required': True, 'allow_blank': False, 'min_length': 3, 'max_length': 16},
-            'password': {'required': True, 'allow_blank': False, 'min_length': 3, 'max_length': 16}
+            'username': {'required': True, 'allow_blank': False, 'min_length': 3, 'max_length': 12},
+            'password': {'required': True, 'allow_blank': False, 'min_length': 3, 'max_length': 12}
         }
 
 

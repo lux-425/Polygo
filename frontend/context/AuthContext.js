@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }) => {
       } else {
         setLoading(false);
         setError(
-          'Username and password must be alphanumeric, between 3 and 16 characters long.'
+          'Username and password must be alphanumeric, between 3 and 12 characters long.'
         );
       }
     } catch (error) {
