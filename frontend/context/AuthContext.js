@@ -64,6 +64,29 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const logout = async () => {
+    try {
+      setLoading(true);
+      const res = await axios.post('/api/auth/logout');
+
+      if (res.data.success) {
+        setLoading(false);
+        setIsAuthenticated(false);
+        setUser(null);
+        // location.reload();
+      }
+    } catch (error) {
+      setLoading(false);
+      setIsAuthenticated(false);
+      setUser(null);
+      setError(
+        error.response &&
+          (error.response.data.detail || error.response.data.error)
+      );
+      // location.reload();
+    }
+  };
+
   // Clear all errors
   const clearErrors = () => {
     setError(null);
@@ -80,6 +103,7 @@ export const AuthProvider = ({ children }) => {
         clearErrors,
         login,
         register,
+        logout,
       }}
     >
       {children}

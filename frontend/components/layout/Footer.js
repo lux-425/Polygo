@@ -1,9 +1,22 @@
+import { useContext } from 'react';
+
 import Image from 'next/image';
 import logoutBtnLogo from '/public/logoutBtn.png';
 
+import AuthContext from '../../context/AuthContext';
+
+import { toast } from 'react-toastify';
+
 const Footer = ({ openMenu }) => {
-  const clickHandler = ()=>{
-  }
+  const { logout } = useContext(AuthContext);
+
+  const clickHandler = () => {
+    try {
+      logout();
+    } catch (error) {
+      toast.dark(error, { type: 'error' });
+    }
+  };
   return (
     <div id='footer'>
       {openMenu && (
