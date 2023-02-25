@@ -26,7 +26,7 @@ const Authentication = () => {
             className='button croix'
             onClick={() => setToggleWindow(false)}
           >
-            X
+            ╳
           </button>
           {toggleLogin && <Login />}
           {!toggleLogin && <Register />}

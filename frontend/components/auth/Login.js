@@ -25,7 +25,7 @@ const Login = () => {
   return (
     <>
       <p className='title'>{loading ? 'Loading...' : 'Login'}</p>
-      <div className='wrapper form'>
+      <div className='wrapper login'>
         <form onSubmit={submitHandler} noValidate>
           <div className='wrapper input'>
             <input

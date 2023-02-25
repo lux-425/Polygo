@@ -49,7 +49,7 @@ const Menu = () => {
           Achievements
         </button>
       </div>
-      {openSettings && <Settings />}
+      {openSettings && <Settings setOpenSettings={setOpenSettings} />}
     </div>
   );
 };
